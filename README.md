@@ -1,117 +1,122 @@
-# Mohamed Fateen — Backend & Systems Engineering
+# Mohamed Fateen — Backend Engineering
 
-I design and build **invariant-driven backend systems** with a focus on real-time communication, AI-governed workflows, deployment diagnostics, evaluation pipelines, and secure stateful applications.
+First-year Computer Science engineering student building **stateful backend systems, real-time applications, and AI-assisted workflows** using Java, Spring Boot, FastAPI, React, and TypeScript.
 
-My work centers on problems most beginner projects avoid:
+My current work focuses on:
 
-* enforcing correctness under non-deterministic AI output
-* designing strict domain models and validators
-* building adaptive state machines instead of simple CRUD applications
-* governing progression, failure, recovery, and remediation
-* diagnosing deployment failures using logs and configuration evidence
-* designing secure multi-device systems with real-time synchronization
-
----
-
-## 🚩 Flagship Systems
-
-### SkillForgeAI — Invariant-Driven Adaptive Learning System
-
-A full-stack learning control system that models evolving skill states, generates constrained roadmaps, and orchestrates AI-evaluated tasks while preserving roadmap, phase, and skill-vector integrity.
-
-**Core engineering themes**
-
-* Roadmap state engine and lifecycle governance
-* Unified AI evaluation pipeline with contract-enforced outputs
-* Skill delta engine with bounded updates
-* Strict domain validator layer
-* Failure-first system design
-* AI-governed progression and remediation
-
-👉 Pinned repository: **SkillForgeAI**
+* domain modeling and guarded state transitions
+* authentication and authorization
+* real-time communication using WebSockets
+* inter-service communication
+* structured validation of AI-generated output
+* failure handling, recovery, and persistence consistency
 
 ---
 
-### DeployForge — AI-Assisted Deployment Diagnosis System
+## 🚩 Flagship Projects
 
-A full-stack deployment debugging system that analyzes failing deployment logs and configuration files to identify root causes and generate evidence-backed remediation steps.
+### [DeployForge](https://github.com/fateen1028-pixel/DeployForge) — Deployment Diagnosis Platform
 
-DeployForge models a strict hierarchy of users, projects, deployment services, and diagnosis records. It combines a Spring Boot application backend with a separate FastAPI AI service for structured deployment analysis.
+A full-stack system that analyzes deployment logs and configuration files to identify likely failure causes and generate structured remediation guidance.
 
-**Core engineering themes**
+DeployForge models the following hierarchy:
 
-* Multi-project and deployment-service domain modeling
+```text
+User
+└── Project
+    └── Deployment Service
+        └── Diagnosis
+```
+
+**Engineering highlights**
+
+* Spring Boot application backend
+* Separate FastAPI AI diagnosis service
+* Spring Boot-to-FastAPI communication using `RestClient`
 * Multipart log and configuration-file ingestion
-* Spring Boot to FastAPI service communication
-* Structured AI diagnosis with validated outputs
-* Evidence-backed root-cause analysis
-* Multi-file reasoning across logs, configuration, SQL, Docker, and platform files
+* Structured AI responses validated with Pydantic
+* JWT authentication and project ownership enforcement
 * Persistent diagnosis history
-* Deployment error classification
-* Secure JWT-based project ownership
-* Failure-oriented debugging workflows
+* Secret sanitization before AI processing
+* Deployment failure classification
 
-The system can diagnose failures such as:
-
-* database connection and hostname errors
-* Flyway migration checksum mismatches
-* invalid environment-variable configuration
-* Docker and runtime misconfiguration
-* framework-specific deployment failures
-* platform-specific deployment issues
-
-👉 Pinned repository: **DeployForge**
+**Tech:** Java 21, Spring Boot, Spring Security, PostgreSQL, FastAPI, LangGraph, React, TypeScript
 
 ---
 
-### Chatty — Real-Time End-to-End Encrypted Chat System
+### [Chatty](https://github.com/fateen1028-pixel/Chatty) — Multi-Device Encrypted Chat System
 
-A full-stack real-time encrypted chat application built with **Spring Boot**, **React**, **WebSockets**, and the **Web Crypto API**.
+A real-time chat application built with Spring Boot, React, WebSockets, and the Web Crypto API.
 
-Chatty focuses on secure multi-device communication, encrypted message delivery, trusted-device approval, recovery phrase backup, and device-aware authentication.
+Chatty implements client-side message encryption, device-specific key access, trusted-device approval, recovery flows, and device-aware authentication.
 
-**Core engineering themes**
+**Engineering highlights**
 
-* End-to-end encrypted messaging
 * AES-GCM message encryption
 * RSA-OAEP key wrapping
 * Device-specific encrypted message keys
-* Multi-device account support
+* Client-side private-key storage using IndexedDB
 * Trusted-device approval flow
 * Recovery phrase-based encrypted key backup
-* JWT authentication with HttpOnly refresh tokens
+* JWT access tokens with HttpOnly refresh-token cookies
 * Device-aware refresh-token revocation
-* WebSocket-based real-time messaging
-* Online presence, typing indicators, and read/delivery receipts
+* STOMP over WebSockets
+* Online presence, typing indicators, and delivery/read receipts
 
-👉 Pinned repository: **Chatty**
+**Tech:** Java 21, Spring Boot, Spring Security, PostgreSQL, React, WebSockets, Web Crypto API
+
+---
+
+### [SkillForgeAI](https://github.com/fateen1028-pixel/SkillForgeAI) — Adaptive Learning State Engine
+
+A full-stack learning system that models learner progress through roadmap, phase, slot, task, submission, and evaluation lifecycles.
+
+The backend acts as the source of truth and rejects invalid state transitions before persistence.
+
+**Engineering highlights**
+
+* Roadmap and phase state engine
+* Guarded slot and task lifecycle transitions
+* Structured AI evaluation pipeline
+* Bounded skill-vector updates
+* Remediation and retry workflows
+* Domain-level validation
+* Optimistic locking for roadmap updates
+* Repository and domain-layer separation
+
+**Tech:** FastAPI, Pydantic, MongoDB, LangChain, Next.js, React
+
+---
+
+### [ArchitectAI](https://github.com/fateen1028-pixel/ArchitectAI-) — System Design Learning Platform
+
+An interactive platform for studying system-design concepts, attempting architecture challenges, and receiving structured AI-assisted feedback.
+
+**Engineering highlights**
+
+* Topic and lesson APIs
+* System-design challenge workflows
+* Persistent architecture attempts
+* Flyway-managed database migrations
+* Spring Boot and React integration
+* AI-assisted architecture evaluation
+
+**Tech:** Java 21, Spring Boot, PostgreSQL, Flyway, React, TypeScript
 
 ---
 
 ## Engineering Focus
 
-* Backend system architecture
-* Spring Boot, FastAPI, and API design
-* Domain-driven design and invariant enforcement
+* Backend architecture
+* Domain modeling and state machines
+* Spring Boot and FastAPI
+* REST API design
+* Authentication and authorization
 * Inter-service communication
-* Real-time systems using WebSockets
-* Authentication, authorization, and device-aware security
-* End-to-end encryption architecture
-* AI evaluation and diagnosis orchestration
+* WebSocket-based real-time systems
 * Structured AI-output validation
-* State machines and progression engines
-* Deterministic control systems
-* Deployment failure analysis
-* Failure-first backend design
-
----
-
-## Currently Building
-
-* **SkillForgeAI** — architecture hardening, diagrams, deployment, and evaluation-pipeline improvements
-* **DeployForge** — diagnosis-quality improvements, broader failure classification, deployment history, and evidence-grounded remediation
-* **Chatty** — release hardening, deployment polish, message pagination, push notifications, and Redis-backed presence
-* **Second system-level project** — distributed or algorithmic engineering pillar
+* Failure handling and recovery
+* Database consistency and optimistic locking
 
 ---
 
@@ -119,67 +124,36 @@ Chatty focuses on secure multi-device communication, encrypted message delivery,
 
 ### Backend
 
-* Java 21
-* Spring Boot
-* FastAPI
-* Spring Security
-* WebSockets / STOMP
-* REST APIs
-* JWT authentication
-* PostgreSQL
-* MongoDB
-* Supabase
-* Redis
+`Java 21` · `Spring Boot` · `Spring Security` · `FastAPI` · `REST APIs` · `WebSockets` · `STOMP`
 
-### AI and Workflow Engineering
+### Data
 
-* LangChain
-* LangGraph
-* Structured LLM outputs
-* Schema-based response validation
-* AI evaluation pipelines
-* AI-assisted deployment diagnosis
+`PostgreSQL` · `MongoDB` · `Supabase` · `Flyway`
+
+### AI Engineering
+
+`LangChain` · `LangGraph` · `Structured LLM Outputs` · `Pydantic Validation`
 
 ### Frontend
 
-* React
-* TypeScript
-* Vite
-* Tailwind CSS
-* Web Crypto API
-* IndexedDB
+`React` · `TypeScript` · `Next.js` · `Vite` · `Tailwind CSS` · `Web Crypto API` · `IndexedDB`
 
-### Engineering Tools
+### Tools
 
-* Git and GitHub
-* Docker
-* GitHub Actions
-* Maven
-* Postman
-* Cloudflare Pages
-* Render
+`Git` · `GitHub` · `Docker` · `Maven` · `Postman` · `Render` · `Cloudflare Pages`
 
 ---
 
-## What I Care About
+## Currently Improving
 
-I am not interested in building only surface-level CRUD applications.
-
-I care about systems where correctness matters:
-
-* Can the backend reject invalid state transitions?
-* Can the system recover safely from failure?
-* Can AI output be constrained, validated, and audited?
-* Can an AI diagnosis point to concrete evidence instead of guessing?
-* Can failures be traced across logs, configuration files, and service boundaries?
-* Can user data remain protected across multiple devices?
-* Can real-time events remain consistent across sessions?
-
-That is the kind of engineering I am working toward.
+* Adding evidence references and stronger validation to DeployForge diagnoses
+* Expanding automated and adversarial tests for Chatty
+* Strengthening SkillForgeAI invariant and concurrency test coverage
+* Improving deployment, documentation, and observability across projects
 
 ---
 
 ## Contact
 
-* LinkedIn: https://www.linkedin.com/in/mohamed-fateen
-* Email: [fateen.build@gmail.com](mailto:fateen.build@gmail.com)
+* **LinkedIn:** [linkedin.com/in/mohamed-fateen](https://www.linkedin.com/in/mohamed-fateen)
+* **Email:** [fateen.build@gmail.com](mailto:fateen.build@gmail.com)
